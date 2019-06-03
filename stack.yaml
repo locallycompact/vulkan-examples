@@ -1,13 +1,17 @@
 flags: {}
+allow-newer: true
 packages:
   - '.'
   - location:
       git: https://github.com/expipiplus1/vulkan.git
-      commit: c3006c1d913fc409340b99a6ecfbcb75a1b16296
+      commit: bf651c43a190313d989a7051aa723d6642e7fe35
     extra-dep: true
-extra-deps:
-- primitive-0.6.1.0
-- vector-0.11.0.0
-- vector-sized-0.3.2.0
+extra-deps: []
 
-resolver: ghc-8.0.1
+resolver: lts-13.23
+nix:
+  enable: false
+  pure: false
+  packages: [vulkan-loader]
+extra-lib-dirs:
+- /run/opengl-driver/lib
